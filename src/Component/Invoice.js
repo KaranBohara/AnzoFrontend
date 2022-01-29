@@ -4,7 +4,7 @@ import {Table} from "react-bootstrap";
 const Invoice = () => {
     const[invoice,setInvoice]=useState([]);
     useEffect(() => {
-        const url = "http://localhost:8090/anzo/invoice";
+        const url = "http://localhost:5000/invoice";
         const fetchData = async () => {
           try {
             const response = await fetch(url,{
@@ -22,7 +22,7 @@ const Invoice = () => {
         };
         fetchData();
     }, []);
-  return <div>
+  return <div className='invoice-table'>
   <Table striped bordered hover>
   <thead>
     <tr>
@@ -32,7 +32,9 @@ const Invoice = () => {
       <th>Requested_5L</th>
       <th>Requested_3L</th>
       <th>Requested_2L</th>
+      <th>Dispatched_5L</th>
       <th>Dispatched_3L</th>
+      <th>Dispatched_2L</th>
       <th>Status</th>
       <th>Station Id</th>
       <th>Created Date</th>
@@ -49,10 +51,12 @@ const Invoice = () => {
                 <td>{item.Requested_5L}</td>
                 <td>{item.Requested_3L}</td>
                 <td>{item.Requested_2L}</td>
+                <td>{item.Dispatched_5L?item.Dispatched_5L:'-'}</td>
                 <td>{item.Dispatched_3L?item.Dispatched_3L:'-'}</td>
+                <td>{item.Dispatched_2L?item.Dispatched_2L:'-'}</td>
                 <td>{item.Status}</td>
                 <td>{item.StationId}</td>
-                <td>{item.CreatedDate}</td>
+                <td>{item.createdAt}</td>
                 </tr>
             )
         })}

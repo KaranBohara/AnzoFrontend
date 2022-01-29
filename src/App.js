@@ -1,50 +1,30 @@
-import { useState } from 'react';
-import './App.css';
-import AnzoTabs from './Component/AnzoTabs';
-import Invoice from './Component/Invoice';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import React from "react";
+import "./App.css";
+import AnzoTabs from "./Component/AnzoTabs";
+import Invoice from "./Component/Invoice";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {DropdownButton} from 'react-bootstrap';
 
 function App() {
-  const[menuInvoice,setMenuInvoice]=useState(false);
-  const[createInvoice,setCreateInvoice]=useState(false);
-  const[viewInvoice,setViewInvoice]=useState(false);
-
-  const handleMenuOpen=()=>
-  {
-    setMenuInvoice(true)
-    setCreateInvoice(false)
-    setViewInvoice(false)
-  }
-  const handleCreate=()=>
-  {
-    setMenuInvoice(false)
-    setCreateInvoice(true)
-    setViewInvoice(false)
-  }
-  const handleView=()=>
-  {
-    setMenuInvoice(false)
-    setCreateInvoice(false)
-    setViewInvoice(true)
-  }
   return (
-    <div className="App">
-    <div className='tabs-container'>
-    <button onClick={handleMenuOpen}>Invoice
-    <ArrowDropDownIcon/>
-    </button>
-    <button>Pallet</button>
-    <button>AGV</button>
-    </div>
-    {menuInvoice?<div className='invoice-dropdown'>
-    <button onClick={handleCreate}>Create Invoice</button>
-    <button onClick={handleView}>View Invoice</button>
-    </div>:""}
-    {createInvoice?<AnzoTabs/>:""}
-    {viewInvoice?<div className='invoice-table'>
-    <Invoice/>
-    </div>:""}
-    </div>
+    <Router>
+      <div className="App">
+        <div className="tabs-container">
+          <DropdownButton className="invoice-menu" title="Invoice">
+           <Link to="/addinvoice">Create Invoice</Link>
+           <Link to="/viewinvoice">View Invoice</Link>
+          </DropdownButton>
+          <DropdownButton className="invoice-menu" title="Pallet">
+          </DropdownButton>
+          <DropdownButton className="invoice-menu" title="AGV">
+          </DropdownButton>
+        </div>
+        <Switch>
+          <Route path="/addinvoice" exact component={AnzoTabs} />
+            <Route path="/viewinvoice" exact component={Invoice} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
