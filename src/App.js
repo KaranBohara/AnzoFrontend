@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import AnzoTabs from "./Component/AnzoTabs";
-import Invoice from "./Component/Invoice";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {DropdownButton} from 'react-bootstrap';
+import CreateInvoice from "./Component/CreateInvoice";
+import ViewInvoice from "./Component/ViewInvoice";
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
           </DropdownButton>
         </div>
         <Switch>
-          <Route path="/addinvoice" exact component={AnzoTabs} />
-            <Route path="/viewinvoice" exact component={Invoice} />
+          <Route path="/addinvoice" exact component={CreateInvoice} />
+            <Route path="/viewinvoice" exact component={ViewInvoice} />
         </Switch>
       </div>
     </Router>
