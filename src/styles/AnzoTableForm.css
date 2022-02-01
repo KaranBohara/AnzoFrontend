@@ -1,6 +1,6 @@
 .tabs-container
 {
-    width: 28%;
+    width: 38%;
     display: flex;
     margin: auto;
     justify-content: space-between;
@@ -26,7 +26,7 @@
     box-shadow: none !important;
     background-image: none !important;
 }
-.invoice-menu a
+.tab-menu a
 {
  color:#1781EA;
  text-decoration: none;
@@ -39,7 +39,7 @@
  margin-top: .1rem;
  justify-content: center;
 }
-.invoice-menu a:hover
+.tab-menu a:hover
 {
     background-color:#1781EA ;
     color: white;
@@ -77,14 +77,14 @@ label
 {
     font-weight: bold;
 }
-.invoice-submit
+.table-submit
 {
     width: 100%;
     display: flex;
     justify-content: center;
     margin: 1.5rem 0rem;
 }
-.invoice-submit button
+.table-submit button
 {
  outline: none;
  border: none;
@@ -97,31 +97,9 @@ padding:.5rem 1.3rem;
 border-radius: .2rem;
 color: white;
 }
-.invoice-table
+.table-design
 {
     width: 90%;
     margin:auto;
     margin-top: 5rem;
-}
-.invoice-dropdown
-{
-    width: 78.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0.1rem;
-}
-.invoice-dropdown button
-{
-width:10rem;
-margin-top: .2rem;
-outline: none;
-border:none;
-padding: .5rem 0rem;
-font-size: 1.1rem;
-}
-.invoice-dropdown button:hover
-{
-    background-color: #1781EA;
-    color: white;
 }

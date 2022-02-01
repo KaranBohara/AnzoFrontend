@@ -22,7 +22,7 @@ const ViewInvoice = () => {
     useEffect(() => {
       fetchData()
     }, [fetchData])
-  return <div className='invoice-table'>
+  return <div className='table-design'>
   <Table striped bordered hover>
   <thead>
     <tr>
