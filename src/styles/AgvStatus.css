@@ -1,0 +1,66 @@
+.table-design-agv
+{
+    width: 40%;
+    margin:auto;
+    margin-top: 5rem;
+}
+.modal-title
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.agv-input-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.agv-input-container label
+{
+    font-size: .9rem;
+}
+.agv-input-container input
+{
+    outline: none;
+    height: 2.5rem;
+    margin-top: .5rem;
+}
+.agv-input-container button
+{
+    width: fit-content;
+    padding: .5rem 1rem;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: indigo;
+    margin: auto;
+    margin-top: 1rem;
+}
+.agv-tooltip
+{
+    font-size: 1rem;
+}
+.edit-icon
+{
+    color:blue;
+    cursor: pointer;
+}
+.edit-icon:hover
+{
+ color: red;
+ transform: scale(1.2);
+ transition: all .7s;
+}
+.close-icon
+{
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+.table td,.table th
+{
+    border: 1px solid rgb(78, 78, 78);
+}

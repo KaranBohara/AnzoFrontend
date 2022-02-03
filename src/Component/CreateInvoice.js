@@ -35,7 +35,7 @@ const CreateInvoice = () => {
       <ToastContainer draggable={false} position="top-right" transition={Zoom} autoClose={1500} />
    <Form
       onSubmit={onSubmitInvoice}
-      // initialValues={{GantryId:1,StationId:1}}
+      initialValues={{GantryId:1,StationId:1}}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit} className='form-container'>
         <h3 style={{marginTop:"1rem"}}>Invoice Entry</h3>
