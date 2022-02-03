@@ -1,13 +1,33 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import "../styles/AnzoTableForm.css";
 import { Form, Field } from 'react-final-form';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast, Zoom } from "react-toastify";
+import axios from 'axios';
 
 const CreatePallet = () => {
   const history=useHistory();
+  const [statusData,setStatusData]=useState([]);
+  const fetchStatusData = React.useCallback(() => {
+    axios({
+      "method": "GET",
+      "url": "http://localhost:5000/anzo/status",
+      "headers": {
+        "content-type": "application/json",
+      }
+    })
+    .then((response) => {
+      setStatusData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+useEffect(() => {
+  fetchStatusData();
+},[fetchStatusData]);
   const onSubmitPallet = async (values) => {
-    fetch("http://localhost:5000/pallet", {
+    fetch("http://localhost:5000/anzo/pallet", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -22,9 +42,6 @@ const CreatePallet = () => {
        {
          history.push('/viewpallet')
        },1500)
-      .catch((e) => {
-        console.log(e);
-      });
   }
   return(
       <div>
@@ -70,6 +87,18 @@ const CreatePallet = () => {
           type="text"
         />
       </div>
+      </div>
+      <div className='input-container'>
+      <div className='input-wrap'>
+      <label>Status</label>
+      <Field name="Status" component="select">
+  
+{statusData.map((item)=>
+  {
+    return<option key={item.Id} value={item.Status}>{item.Status}</option>
+  })}
+    </Field>
+    </div>
       </div>
           <div className="table-submit">
             <button>

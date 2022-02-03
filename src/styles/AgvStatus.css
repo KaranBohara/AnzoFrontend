@@ -22,7 +22,7 @@
 {
     font-size: .9rem;
 }
-.agv-input-container input
+.agv-input-container input,.agv-input-container select
 {
     outline: none;
     height: 2.5rem;
@@ -47,12 +47,6 @@
 {
     color:blue;
     cursor: pointer;
-}
-.edit-icon:hover
-{
- color: red;
- transform: scale(1.2);
- transition: all .7s;
 }
 .close-icon
 {

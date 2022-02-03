@@ -21,7 +21,7 @@ const AgvView = () => {
     const fetchData = React.useCallback(() => {
       axios({
         "method": "GET",
-        "url": "http://localhost:5000/agv",
+        "url": "http://localhost:5000/anzo/agv",
         "headers": {
           "content-type": "application/json",
         }
@@ -60,6 +60,7 @@ const AgvView = () => {
   <Table className='table' hover>
   <thead>
     <tr>
+      <th>Id</th>
       <th>AGV_Id</th>
       <th>Status</th>
       <th>Action</th>
@@ -69,12 +70,13 @@ const AgvView = () => {
     {agvStatus.map((item)=>
         {
             return(
-                <tr key={item.AGV_Id}>
-                <td>{item.AGV_Id}</td>
+                <tr key={item.Agv_Id}>
+                <td>{item.Id}</td>
+                <td>{item.Agv_Id}</td>
                 <td>{item.Status}</td>
                 <td>
                 <Tooltip title={<span style={{fontSize:".8rem",fontWeight:"bold"}}>Edit AGV Status</span>}  placement="right">
-                <EditIcon className='edit-icon' onClick={()=>handleEdit(item.AGV_Id)}/>
+                <EditIcon className='edit-icon' onClick={()=>handleEdit(item.Id)}/>
                 </Tooltip>
                 </td>
                 </tr>

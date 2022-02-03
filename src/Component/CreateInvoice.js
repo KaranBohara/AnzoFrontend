@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const CreateInvoice = () => {
   const history=useHistory();
   const onSubmitInvoice = async (values) => {
-    fetch("http://localhost:5000/invoice", {
+    fetch("http://localhost:5000/anzo/invoice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

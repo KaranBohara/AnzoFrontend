@@ -7,7 +7,7 @@ const ViewInvoice = () => {
     const fetchData = React.useCallback(() => {
       axios({
         "method": "GET",
-        "url": "http://localhost:5000/invoice",
+        "url": "http://localhost:5000/anzo/invoice",
         "headers": {
           "content-type": "application/json",
         }
@@ -54,9 +54,9 @@ const ViewInvoice = () => {
                 <td>{item.Dispatched_5L?item.Dispatched_5L:'-'}</td>
                 <td>{item.Dispatched_3L?item.Dispatched_3L:'-'}</td>
                 <td>{item.Dispatched_2L?item.Dispatched_2L:'-'}</td>
-                <td>{item.Status}</td>
+                <td>{item.StatusId}</td>
                 <td>{item.StationId}</td>
-                <td>{item.createdAt}</td>
+                <td>{item.CreatedDate}</td>
                 </tr>
             )
         })}

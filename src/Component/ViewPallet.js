@@ -7,7 +7,7 @@ const ViewPallet = () => {
     const fetchData = React.useCallback(() => {
       axios({
         "method": "GET",
-        "url": "http://localhost:5000/pallet",
+        "url": "http://localhost:5000/anzo/pallet",
         "headers": {
           "content-type": "application/json",
         }
@@ -46,7 +46,7 @@ const ViewPallet = () => {
                 <td>{item.Item}</td>
                 <td>{item.Qty}</td>
                 <td>{item.Status}</td>
-                <td>{item.createdAt}</td>
+                <td>{item.CreatedDate}</td>
                 </tr>
             )
         })}
