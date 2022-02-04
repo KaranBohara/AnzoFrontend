@@ -36,7 +36,10 @@ useEffect(() => {
     })
       .then((res) => res.json())
       .then((data) => {
+              if(data.success)
               toast.success(data.message)
+              else
+              toast.danger(data.message)
             })
        setTimeout(()=>
        {
@@ -48,7 +51,7 @@ useEffect(() => {
       <ToastContainer draggable={false} position="top-right" transition={Zoom} autoClose={1500} />
    <Form
       onSubmit={onSubmitPallet}
-      initialValues={{StationId:1}}
+      initialValues={{StationId:1,Status:'Free'}}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit} className='form-container'>
         <h3 style={{marginTop:"1rem"}}>Pallet Entry</h3>

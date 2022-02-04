@@ -4,6 +4,12 @@
     margin:auto;
     margin-top: 5rem;
 }
+.table-design-control
+{
+    width: 60%;
+    margin:auto;
+    margin-top: 5rem;  
+}
 .modal-title
 {
     display: flex;

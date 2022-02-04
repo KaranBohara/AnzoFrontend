@@ -39,7 +39,6 @@ const AgvView = () => {
   return <div className='table-design-agv'>
   <Modal
       show={editModal}
-      size="sm"
       onHide={handleEditClose}
       backdrop="static"
       keyboard={false}
@@ -63,6 +62,8 @@ const AgvView = () => {
       <th>Id</th>
       <th>AGV_Id</th>
       <th>Status</th>
+      <th>AGV Location</th>
+      <th>Is Active</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -74,9 +75,11 @@ const AgvView = () => {
                 <td>{item.Id}</td>
                 <td>{item.Agv_Id}</td>
                 <td>{item.Status}</td>
+                <td>{item.AgvLocation}</td>
+                <td>{item.IsActive.toString()}</td>
                 <td>
                 <Tooltip title={<span style={{fontSize:".8rem",fontWeight:"bold"}}>Edit AGV Status</span>}  placement="right">
-                <EditIcon className='edit-icon' onClick={()=>handleEdit(item.Id)}/>
+                <EditIcon className='edit-icon' onClick={()=>handleEdit(item.Agv_Id)}/>
                 </Tooltip>
                 </td>
                 </tr>

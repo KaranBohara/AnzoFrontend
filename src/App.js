@@ -7,6 +7,7 @@ import ViewInvoice from "./Component/ViewInvoice";
 import CreatePallet from "./Component/CreatePallet";
 import ViewPallet from "./Component/ViewPallet";
 import AgvView from "./Component/AgvView";
+import ControlView from "./Component/ControlView";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Link to="/viewagv">View AGV Status</Link>
           </DropdownButton>
           <DropdownButton className="tab-menu" title="Control">
+          <Link to="/viewcontrol">View Control</Link>
           </DropdownButton>
         </div>
         <Route path="/" exact component={ViewInvoice} />
@@ -38,6 +40,9 @@ function App() {
         </Switch>
         <Switch>
         <Route path="/viewagv" exact component={AgvView}/>
+        </Switch>
+        <Switch>
+        <Route path="/viewcontrol" exact component={ControlView}/>
         </Switch>
       </div>
     </Router>

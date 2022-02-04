@@ -1,12 +1,32 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/AnzoTableForm.css";
 import { Form, Field } from 'react-final-form';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios';
 const CreateInvoice = () => {
+  const [statusData,setStatusData]=useState([]);
   const history=useHistory();
+  const fetchStatusData = React.useCallback(() => {
+    axios({
+      "method": "GET",
+      "url": "http://localhost:5000/anzo/status",
+      "headers": {
+        "content-type": "application/json",
+      }
+    })
+    .then((response) => {
+      setStatusData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+useEffect(() => {
+  fetchStatusData();
+},[fetchStatusData]);
   const onSubmitInvoice = async (values) => {
     fetch("http://localhost:5000/anzo/invoice", {
       method: "POST",
@@ -35,7 +55,7 @@ const CreateInvoice = () => {
       <ToastContainer draggable={false} position="top-right" transition={Zoom} autoClose={1500} />
    <Form
       onSubmit={onSubmitInvoice}
-      initialValues={{GantryId:1,StationId:1}}
+      initialValues={{GantryId:1,StationId:1,Status:'Free'}}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit} className='form-container'>
         <h3 style={{marginTop:"1rem"}}>Invoice Entry</h3>
@@ -75,6 +95,7 @@ const CreateInvoice = () => {
         />
       </div>
       </div>
+      <div className='input-container'>
       <div className='input-wrap'>
       <label>2L</label>
       <Field
@@ -82,6 +103,17 @@ const CreateInvoice = () => {
         component="input"
         type="text"
       />
+    </div>
+    <div className='input-wrap'>
+      <label>Status</label>
+      <Field name="Status" component="select">
+  
+{statusData.map((item)=>
+  {
+    return<option key={item.Id} value={item.Status}>{item.Status}</option>
+  })}
+    </Field>
+    </div>
     </div>
     <div className='input-wrap'>
             <label>Station Id</label>

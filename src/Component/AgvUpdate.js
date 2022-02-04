@@ -63,11 +63,11 @@ const AgvUpdate = (props) => {
               {
                 toast.error(data.message)
               }
-              history.push('/viewagv')
             })
-            .catch((e) => {
-              console.log(e);
-            });
+            setTimeout(()=>
+            {
+              history.push('/viewagv')
+            },1500)
         };
   return <div>
   <ToastContainer

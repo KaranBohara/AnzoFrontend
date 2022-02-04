@@ -51,10 +51,10 @@ const ViewInvoice = () => {
                 <td>{item.Requested_5L}</td>
                 <td>{item.Requested_3L}</td>
                 <td>{item.Requested_2L}</td>
-                <td>{item.Dispatched_5L?item.Dispatched_5L:'-'}</td>
-                <td>{item.Dispatched_3L?item.Dispatched_3L:'-'}</td>
-                <td>{item.Dispatched_2L?item.Dispatched_2L:'-'}</td>
-                <td>{item.StatusId}</td>
+                <td>{item.Dispatched_5L}</td>
+                <td>{item.Dispatched_3L}</td>
+                <td>{item.Dispatched_2L}</td>
+                <td>{item.Status}</td>
                 <td>{item.StationId}</td>
                 <td>{item.CreatedDate}</td>
                 </tr>
